@@ -1,745 +1,203 @@
-:root {
-  --bg-teal: #1c9e9f;
-  --bg-card: #f9f0dd;
-  --accent-orange: #f5763a;
-  --accent-dark: #111216;
-  --text-main: #252525;
-  --text-muted: #5c5c5c;
-  --border-card: #151515;
-  --pill-bg: #fbe2cc;
-  --shadow-soft: 0 18px 40px rgba(0,0,0,0.35);
-  --radius-lg: 18px;
-  --radius-md: 10px;
-  --radius-pill: 999px;
-  --transition-fast: 160ms ease-out;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0b585c;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  color: var(--text-main);
-  overflow-x: hidden; /* allow vertical scroll, no sideways */
-}
-
-/* TEXTURED BACKGROUND LAYER */
-.bg-texture {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 0% 0%, #3fd6d2 0, #1c9e9f 38%, #0d5053 100%),
-    radial-gradient(circle at 100% 0%, rgba(255,138,76,0.7) 0, transparent 55%),
-    radial-gradient(circle at 10% 90%, rgba(255,221,140,0.8) 0, transparent 55%),
-    radial-gradient(circle at 83% 80%, rgba(80,241,255,0.7) 0, transparent 55%),
-    radial-gradient(circle, rgba(255,255,255,0.4) 0 1px, transparent 1px),
-    radial-gradient(circle, rgba(0,0,0,0.35) 0 1px, transparent 1px);
-  background-size:
-    100% 100%,
-    420px 420px,
-    420px 420px,
-    420px 420px,
-    20px 20px,
-    26px 26px;
-  opacity: 0.9;
-}
-
-/* MAIN “POSTER” SHELL */
-.page-shell {
-  width: 100%;
-  max-width: 1120px;           /* dial this number to taste */
-  margin: 32px auto 24px;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  border: 4px solid var(--border-card);
-  overflow: visible;
-}
-
-/* HEADER */
-
-.site-header {
-  background: var(--bg-card);
-  padding: 18px 28px 16px;
-  border-bottom: 3px solid var(--border-card);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-}
-
-.site-logo {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex: 1 1 auto;
-  min-width: 240px;
-}
-
-.logo-img {
-  width: 96px;
-  height: 96px;
-  border-radius: 20px;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.45);
-  object-fit: cover;
-}
-
-.logo-text {
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-.logo-text span {
-  display: block;
-}
-
-.logo-line-2 {
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.logo-line-3 {
-  font-size: 11px;
-  letter-spacing: 0.32em;
-}
-
-.nav-tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.nav-tab {
-  border-radius: 999px;
-  padding: 7px 13px 8px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  border: 1px solid rgba(0,0,0,0.16);
-  background: #ffe9cf;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.nav-tab--primary {
-  background: #f36b35;
-  color: #fff;
-  border-color: #f36b35;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-}
-
-.nav-tab--active {
-  background: var(--accent-dark);
-  color: #fff;
-  border-color: var(--accent-dark);
-}
-
-.nav-tab:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-}
-
-/* MAIN LAYOUT */
-
-main {
-  padding: 28px 28px 20px;
-}
-
-/* HERO */
-
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 22px;
-  align-items: center;
-  margin-bottom: 32px;
-}
-
-.hero-kicker {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent-orange);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.hero-title {
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: clamp(32px, 4vw, 42px);
-  line-height: 1.02;
-  text-transform: uppercase;
-  color: var(--accent-orange);
-  margin-bottom: 10px;
-}
-
-.hero-subtitle {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.17em;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.hero-body {
-  font-size: 13px;
-  color: var(--text-muted);
-  max-width: 420px;
-}
-
-.hero-visual {
-  justify-self: flex-end;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.hero-image-card {
-  background: radial-gradient(circle at 0 0, #70d6ff 0, #1b9fab 40%, #085460 100%);
-  border-radius: 24px;
-  padding: 8px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  max-width: 220px;
-  width: 100%;
-}
-
-.hero-image {
-  display: block;
-  max-width: 100%;
-  border-radius: 18px;
-  border: 3px solid rgba(255,255,255,0.85);
-}
-
-/* SECTION GRID */
-
-.section-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-  gap: 24px;
-  margin-bottom: 26px;
-}
-
-.section-title {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  color: var(--accent-dark);
-  margin-bottom: 12px;
-}
-
-/* NEW DROPS */
-
-.card-group {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.drop-card {
-  border-radius: 12px;
-  min-height: 120px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Image card */
-.drop-card--image {
-  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
-  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
-}
-
-.drop-card--image:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.55);
-}
-
-.drop-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.drop-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent 55%);
-  color: #fff;
-  padding: 10px 10px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-/* Gradient card */
-.drop-card--gradient {
-  background: linear-gradient(135deg, #352b75, #f37264);
-  color: #fff;
-  padding: 10px;
-}
-
-.drop-tag {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  padding: 3px 7px;
-  font-size: 9px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-bottom: 6px;
-}
-
-.drop-title {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-/* INTEGRATED LEADER CARD */
-
-.leader-card {
-  margin-top: 16px;
-  border-radius: var(--radius-md);
-  padding: 13px 14px 14px;
-  border: 1px solid rgba(0,0,0,0.14);
-  background: #faefe4;
-  display: grid;
-  grid-template-columns: 110px minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
-}
-
-.leader-figure {
-  height: 110px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #0d0918 0, #0d0918 50%, #ff6b3d 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.leader-figure::before {
-  content: "";
-  position: absolute;
-  inset: 14px 20px 14px;
-  border-radius: 8px;
-  border: 2px solid rgba(255,255,255,0.18);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-.leader-figure::after {
-  content: "";
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.7);
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 20px rgba(255,255,255,0.55);
-}
-
-.leader-meta-title {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  margin-bottom: 6px;
-}
-
-.leader-meta-body {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin-bottom: 8px;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 7px 12px 8px;
-  border-radius: 999px;
-  background: var(--accent-orange);
-  color: #fff;
-  border: none;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 3px 0 rgba(187,90,40,0.9);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 0 rgba(120,54,20,0.95);
-  filter: brightness(1.03);
-}
-
-/* BUZZ + EXCERPT */
-
-.buzz-card {
-  border-radius: var(--radius-md);
-  padding: 14px 16px 16px;
-  border: 1px solid rgba(0,0,0,0.14);
-  background: #fdf6eb;
-  margin-bottom: 14px;
-}
-
-.buzz-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.buzz-title {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-weight: 700;
-}
-
-.buzz-pill {
-  font-size: 9px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: #222222;
-  color: #ffdfb5;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-}
-
-.buzz-body-title {
-  font-size: 16px;
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  margin-bottom: 6px;
-}
-
-.buzz-body-sub {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.excerpt-card {
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  background: #111216;
-  color: #f6f0ff;
-  display: grid;
-  grid-template-columns: 1.1fr minmax(0, 1.1fr);
-  gap: 14px;
-  align-items: center;
-}
-
-.excerpt-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #f3b874;
-  margin-bottom: 6px;
-}
-
-.excerpt-title {
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.45;
-  margin-bottom: 4px;
-}
-
-.excerpt-book {
-  font-size: 11px;
-  color: #b9b5ff;
-}
-
-.excerpt-pane {
-  border-radius: 10px;
-  background: radial-gradient(circle at 0 0, #1e3654, #090b10 65%, #330643 100%);
-  padding: 10px 12px;
-  font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 11px;
-  color: #ccf3ff;
-  min-height: 84px;
-  display: flex;
-  align-items: center;
-}
-
-/* FEED */
-
-.feed-block {
-  border-radius: var(--radius-md);
-  background: #101118;
-  padding: 12px 14px 10px;
-  color: #dfecff;
-  margin-bottom: 24px;
-}
-
-.feed-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 6px;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.feed-title {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-weight: 700;
-}
-
-.feed-pill {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  border-radius: 999px;
-  padding: 3px 9px;
-  background: #222437;
-}
-
-.feed-terminal {
-  background: radial-gradient(circle at 0 0, #151926 0, #050509 60%);
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 11px;
-  overflow-x: auto;
-  white-space: pre;
-}
-
-/* PROTOCOLS */
-
-.protocols {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
-  gap: 24px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.protocols-card {
-  padding: 16px 16px 18px;
-  border-radius: var(--radius-md);
-  border: 1px dashed rgba(0,0,0,0.22);
-  background: #fff4de;
-  position: relative;
-}
-
-.protocols-card::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.06);
-  pointer-events: none;
-}
-
-.pill-label {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--pill-bg);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-weight: 600;
-  color: var(--accent-dark);
-}
-
-.protocols-illustration {
-  margin-top: 10px;
-  height: 120px;
-  border-radius: 16px;
-  background:
-    radial-gradient(circle at 20% 0, #ffecc5 0, #ffc657 40%, #f9ad3b 60%, #f69222 100%);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-}
-
-.protocols-illustration::after {
-  content: "";
-  position: absolute;
-  inset: 18px 26px 20px;
-  border-radius: 12px;
-  border: 2px dashed rgba(0,0,0,0.45);
-  background:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,0.16),
-      rgba(255,255,255,0.16) 2px,
-      transparent 2px,
-      transparent 4px
-    );
-  opacity: 0.9;
-}
-
-.protocols-caption {
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.protocol-tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.protocol-tag {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  min-width: 70px;
-  font-size: 11px;
-  color: var(--text-muted);
-}
-
-.protocol-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 0, #ffffff 0, #ffd4a8 36%, #f47c61 80%);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.26);
-}
-
-.protocol-label {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 9px;
-  font-weight: 600;
-}
-
-/* FOOTER */
-
-.footer-strip {
-  border-top: 3px solid var(--border-card);
-  padding: 14px 18px;
-  background: #111216;
-  color: #f4f4f4;
-  font-size: 11px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-}
-
-.footer-left {
-  max-width: 360px;
-}
-
-.footer-label {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 10px;
-  opacity: 0.9;
-  margin-bottom: 4px;
-}
-
-.footer-meta {
-  font-size: 11px;
-  opacity: 0.75;
-}
-
-.footer-right {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.footer-link {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  text-decoration: none;
-  color: #f4f4f4;
-  opacity: 0.85;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 1px;
-  transition: opacity 140ms ease-out, border-color 140ms ease-out;
-}
-
-.footer-link:hover {
-  opacity: 1;
-  border-color: rgba(244,244,244,0.8);
-}
-
-.footer-dot {
-  opacity: 0.5;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 880px) {
-  .page-shell {
-    margin: 16px auto;
-  }
-
-  main {
-    padding-inline: 18px;
-  }
-
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-visual {
-    justify-content: flex-start;
-  }
-
-  .section-grid,
-  .protocols {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .site-header {
-    padding-inline: 18px;
-  }
-
-  .nav-tabs {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .leader-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .excerpt-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Cornbread Project – The Black Technical Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Textured teal background behind everything -->
+  <div class="bg-texture" aria-hidden="true"></div>
+
+  <!-- Framed “poster” shell -->
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="site-logo">
+        <img src="images/bt-logo.jpeg" alt="The Black Technical Studios logo" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-line-1">The Black</span>
+          <span class="logo-line-2">Technical</span>
+          <span class="logo-line-3">Studios</span>
+        </div>
+      </div>
+
+      <nav class="nav-tabs" aria-label="Primary navigation">
+        <button class="nav-tab nav-tab--primary">Labs</button>
+        <button class="nav-tab">Cornbread</button>
+        <button class="nav-tab nav-tab--active">Integrated Leader</button>
+        <button class="nav-tab">Join</button>
+        <button class="nav-tab">Theory</button>
+        <button class="nav-tab">About</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">The Cornbread Project</div>
+          <h1 class="hero-title">An Integrated Leadership Journey</h1>
+          <p class="hero-subtitle">Nervous Systems · Strategy · Shadow Work</p>
+          <p class="hero-body">
+            A living laboratory for leaders who want to integrate power, care, and complexity.
+            Learn to read your signals, work with your shadow, and design futures that hold you — and the people you lead.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="hero-image-card">
+            <img src="images/cornbread.jpeg" alt="Cornbread illustration" class="hero-image" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- NEW DROPS / BUZZ ROOM -->
+      <section class="section-grid" aria-label="New drops and buzz room">
+        <!-- Left column -->
+        <div>
+          <h2 class="section-title">New Drops</h2>
+
+          <div class="card-group">
+            <!-- Reading Rainbow card -->
+            <article class="drop-card drop-card--image">
+              <img src="images/reading-rainbow.jpeg" alt="Reading Rainbow – The Black Technical Object" class="drop-image" />
+              <div class="drop-overlay">
+                <span class="drop-tag">New · Reading Circle</span>
+                <div class="drop-title">Reading Rainbow: The Black Technical Object</div>
+              </div>
+            </article>
+
+            <!-- Second card -->
+            <article class="drop-card drop-card--gradient">
+              <span class="drop-tag">New · Lab</span>
+              <div class="drop-title">02 · Shadow, Strategy &amp; Signal</div>
+            </article>
+          </div>
+
+          <article class="leader-card">
+            <div class="leader-figure" aria-hidden="true"></div>
+            <div>
+              <div class="leader-meta-title">The Integrated Leader</div>
+              <p class="leader-meta-body">
+                A seasonal journey that blends somatic practice, technical thinking, and
+                dignified pace-setting for people who carry strategy, care &amp; conflict.
+              </p>
+              <button class="btn-primary">Run your LEADROSTATIC //</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Right column -->
+        <div>
+          <article class="buzz-card">
+            <div class="buzz-header">
+              <h2 class="buzz-title">The Buzz Room</h2>
+              <span class="buzz-pill">Live · Chat Stream</span>
+            </div>
+            <div>
+              <div class="buzz-body-title">Storystilling the Theory &amp; History of Tech</div>
+              <p class="buzz-body-sub">
+                A slow conversation space for untangling power, infrastructure, and feeling —
+                with special sessions on academic transitions and leaving institutions well.
+              </p>
+            </div>
+          </article>
+
+          <article class="excerpt-card">
+            <div>
+              <div class="excerpt-label">Excerpt</div>
+              <div class="excerpt-title">
+                From <em>The Black Technical Object</em>: on machine learning, aspiration, and Black being.
+              </div>
+              <div class="excerpt-book">Reading circle · Annotated, embodied, and very much alive.</div>
+            </div>
+            <div class="excerpt-pane">
+{ "note": "If data can rehearse harm, so can we rehearse otherwise — not as metaphor, but as protocol." }
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- BLACK TECHNICAL FEED -->
+      <section aria-label="The Black Technical Feed">
+        <div class="feed-block">
+          <div class="feed-header">
+            <div class="feed-title">The Black Technical Feed</div>
+            <span class="feed-pill">Logs · Experiments · Code-Switching</span>
+          </div>
+          <div class="feed-terminal">
+bt-studio › cornbread_project › logs
+> commit 27: stitched leadership, nervous system &amp; governance
+> commit 28: tested boundaries without abandoning self
+> commit 29: remembered joy is also a technical object
+          </div>
+        </div>
+      </section>
+
+      <!-- CORNBREAD PROTOCOLS -->
+      <section class="protocols" aria-label="Cornbread Protocols">
+        <div class="protocols-card">
+          <div class="pill-label">The Cornbread Protocols</div>
+          <div class="protocols-illustration" aria-hidden="true"></div>
+          <p class="protocols-caption">
+            A set of living, iterative practices for staying resourced while you lead:
+            part recipe book, part debugging guide, part altar.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="section-title">Loomilates &amp; Companions</h2>
+          <div class="protocol-tags">
+            <div class="protocol-tag">
+              <div class="protocol-icon"></div>
+              <div class="protocol-label">Recipes</div>
+            </div>
+            <div class="protocol-tag">
+              <div class="protocol-icon"></div>
+              <div class="protocol-label">History</div>
+            </div>
+            <div class="protocol-tag">
+              <div class="protocol-icon"></div>
+              <div class="protocol-label">Community</div>
+            </div>
+            <div class="protocol-tag">
+              <div class="protocol-icon"></div>
+              <div class="protocol-label">Signals</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-strip">
+      <div class="footer-left">
+        <div class="footer-label">
+          Black Technical Studios · Cornbread Project v0.1
+        </div>
+        <div class="footer-meta">
+          An integrated leadership lab for nervous systems, strategy &amp; shadow work.
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <!-- Replace these hrefs with your real links later -->
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">
+          Instagram
+        </a>
+        <span class="footer-dot">•</span>
+        <a href="https://substack.com" target="_blank" rel="noopener" class="footer-link">
+          Substack
+        </a>
+        <span class="footer-dot">•</span>
+        <a href="mailto:you@example.com" class="footer-link">
+          Email
+        </a>
+      </div>
+    </footer>
+  </div> <!-- /.page-shell -->
+</body>
+</html>
