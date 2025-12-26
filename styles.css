@@ -695,4 +695,9 @@ main {
   .excerpt-card {
     grid-template-columns: minmax(0, 1fr);
   }
+ 
+  .drop-card--image:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.55);
+  }
 }
