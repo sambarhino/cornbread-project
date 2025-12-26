@@ -222,11 +222,10 @@ main {
 }
 
 .hero-image-card {
-  background: #111;
+  background: radial-gradient(circle at 0 0, #70d6ff 0, #1b9fab 40%, #085460 100%);
   border-radius: 24px;
   padding: 8px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  background: radial-gradient(circle at 0 0, #70d6ff 0, #1b9fab 40%, #085460 100%);
 }
 
 .hero-image {
@@ -272,6 +271,12 @@ main {
 /* Image version */
 .drop-card--image {
   box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.drop-card--image:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.55);
 }
 
 .drop-image {
@@ -694,10 +699,6 @@ main {
 
   .excerpt-card {
     grid-template-columns: minmax(0, 1fr);
-  }
- 
-  .drop-card--image:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.55);
+
   }
 }
