@@ -583,17 +583,32 @@ main {
   color: var(--accent-dark);
 }
 
-.protocols-image-wrap {
+.protocols-illustration {
   margin-top: 10px;
-  border-radius: 14px;
+  height: 120px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 20% 0, #ffecc5 0, #ffc657 40%, #f9ad3b 60%, #f69222 100%);
+  position: relative;
   overflow: hidden;
   box-shadow: 0 8px 18px rgba(0,0,0,0.35);
 }
 
-.protocols-image {
-  display: block;
-  width: 100%;
-  height: auto;
+.protocols-illustration::after {
+  content: "";
+  position: absolute;
+  inset: 18px 26px 20px;
+  border-radius: 12px;
+  border: 2px dashed rgba(0,0,0,0.45);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.16),
+      rgba(255,255,255,0.16) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  opacity: 0.9;
 }
 
 .protocols-caption {
