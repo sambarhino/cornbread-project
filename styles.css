@@ -80,14 +80,14 @@ body {
 
 .page-shell {
   width: 100%;
-  max-width: 960px;           /* try 960 for a very clear frame; we can tweak */
+  max-width: 1440px;         /* wider “board” – roughly 1.5–2x what you had */
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   border: 4px solid var(--border-card);
   overflow: visible;
-  margin: 40px auto 32px;     /* add this so it’s centered with teal around */
-  padding: 0 24px 20px;       /* inner breathing room */
+  margin: 40px auto 32px;
+  padding: 0 32px 24px;      /* a bit more inner padding to balance the width */
 }
 
 /* HEADER */
