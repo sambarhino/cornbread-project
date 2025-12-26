@@ -633,6 +633,63 @@ main {
   font-weight: 600;
 }
 
+.video-section {
+  margin-bottom: 26px;
+}
+
+.video-card {
+  background: #111216;
+  border-radius: 16px;
+  padding: 18px 18px 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 18px;
+  align-items: center;
+  color: #f4f4f4;
+}
+
+.video-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #f3b874;
+  margin-bottom: 6px;
+}
+
+.video-title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.video-text {
+  font-size: 12px;
+  color: #c9cfda;
+}
+
+.video-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+  background: #000;
+}
+
+.video-embed-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* stack on mobile */
+@media (max-width: 800px) {
+  .video-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 /* FOOTER */
 
 .footer-strip {
