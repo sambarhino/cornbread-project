@@ -31,11 +31,10 @@ body {
   background: #0b585c;
   min-height: 100vh;
   padding: 32px 16px;
-  display: flex;
-  justify-content: center;
+  display: block;     /* change flex → block */
   color: var(--text-main);
   position: relative;
-  overflow-x: hidden;
+  overflow-x: hidden; /* keep x only */
 }
 
 /* TEXTURED BACKGROUND */
