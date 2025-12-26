@@ -728,7 +728,7 @@ main {
 .video-embed-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%; /* 16:9 */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(0,0,0,0.6);
@@ -742,7 +742,7 @@ main {
   height: 100%;
 }
 
-/* stack on mobile */
+/* stack on smaller screens */
 @media (max-width: 800px) {
   .video-card {
     grid-template-columns: minmax(0, 1fr);
