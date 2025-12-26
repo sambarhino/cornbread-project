@@ -27,7 +27,7 @@ html, body {
 }
 
 /* Main layout frame */
-.ge-shell {
+.page-shell {
   width: 100%;
   max-width: 1120px;     /* ← this controls how wide the site feels */
   margin: 32px auto 24px;
