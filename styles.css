@@ -24,7 +24,7 @@ a {
 ---------------------------------*/
 .container {
   width: 90%;
-  max-width: 2200px; /* double width */
+  max-width: 2200px;
   margin: 0 auto;
 }
 
@@ -76,7 +76,7 @@ a {
   padding: 6rem 0;
   background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero::before {
@@ -118,10 +118,13 @@ a {
 
 .hero-image img {
   width: 100%;
+  max-width: 500px; /* not full width */
+  margin-left: -30px; /* slight overlap for pop */
   border: 8px solid teal;
   border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-  transform: rotate(-1.5deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transform: rotate(-2deg);
+  display: block;
 }
 
 /* -------------------------------
@@ -149,7 +152,9 @@ a {
   height: 0;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .video-frame iframe {
@@ -167,6 +172,7 @@ a {
 .paper-section {
   padding: 6rem 0;
   background: #fffefc;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.03);
 }
 
 /* -------------------------------
@@ -189,8 +195,8 @@ a {
   font-weight: 700;
   text-align: center;
   border-radius: 12px;
-  transform: skewX(-12deg);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  transform: skewX(-12deg) rotate(-1deg);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.25);
   position: relative;
   transition: transform 0.3s, background 0.3s;
   cursor: pointer;
@@ -200,16 +206,16 @@ a {
   content: "";
   position: absolute;
   top: 0; bottom: 0;
-  width: 10px;
-  background: rgba(0,0,0,0.1);
+  width: 15px;
+  background: rgba(0,0,0,0.15);
   transform: skewX(12deg);
 }
 
-.protocol::before { left: -10px; }
-.protocol::after { right: -10px; }
+.protocol::before { left: -15px; }
+.protocol::after { right: -15px; }
 
 .protocol:hover {
-  transform: skewX(-12deg) translateY(-5px);
+  transform: skewX(-12deg) rotate(0deg) translateY(-8px);
   background: linear-gradient(135deg, #00b3b3, #008080);
 }
 
@@ -325,5 +331,14 @@ a {
 
   .hero-subtitle {
     font-size: 1.1rem;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .video-frame {
+    max-width: 100%;
   }
 }
