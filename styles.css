@@ -187,6 +187,9 @@ main {
   padding: 28px 28px 26px;
 }
 
+.main-container {
+filter: contrast(110%) brightness(95%) blur(0.2px);
+}
 /* HERO */
 
 .hero {
