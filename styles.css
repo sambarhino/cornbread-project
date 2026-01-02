@@ -1,113 +1,210 @@
-/* --- TACTILE ENGINE --- */
+/* ----------------------------
+   VARIABLES & TYPOGRAPHY
+----------------------------- */
+
 :root {
-    --bg-outer-teal: #6ABFAB;
-    --bg-paper: #F4ECD8;
-    --ink-black: #1A1A1A;
-    --accent-orange: #E68A59;
-    --accent-gold: #F2C94C;
-    --retro-shadow: 6px 6px 0px var(--ink-black);
+  --paper: #f6f2ea;
+  --ink: #1b1b1b;
+  --muted: #6e665c;
+  --accent: #e06a3a;
+  --card: #fffdfa;
+
+  --radius: 14px;
+  --shadow: 0 10px 28px rgba(0,0,0,0.18);
 }
 
-/* 1. THE PAPER DEPTH: Replaces flat color with fiber texture */
+•⁠  ⁠{ box-sizing: border-box; }
+
 body {
-    background-color: var(--bg-outer-teal);
-    background-image: url("https://www.transparenttextures.com/patterns/p6.png"); /* Real grit overlay */
-    margin: 0;
-    padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    var(--paper);
+  background-size: 3px 3px, 5px 5px, auto;
+  background-position: 0 0, 1px 1px, center;
 }
 
-/* 2. THE MAIN CONTAINER: Adds "Ink-on-Page" physical presence */
-.main-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: var(--bg-paper);
-    /* This makes the background look like real fiber paper */
-    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png"); 
-    border: 3px solid var(--ink-black);
-    box-shadow: var(--retro-shadow);
-    padding: 2.5rem;
-    position: relative;
-    /* Micro-blur creates the "ink bleed" feel on the whole document */
-    filter: contrast(105%) brightness(98%) blur(0.15px);
+/* ----------------------------
+   LAYOUT
+----------------------------- */
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* 3. THE "SUN-BAKED" OVERLAY: A global warm tint to unify the colors */
-.main-container::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(230, 138, 89, 0.04); /* Very faint orange tint */
-    pointer-events: none;
-    z-index: 10;
+.container.narrow {
+  max-width: 760px;
 }
 
-/* --- HEADERS: The "Impact" Style from your image --- */
-h1, h2, h3 {
-    font-family: Impact, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 0;
+.scroll-section {
+  padding: 6rem 0;
 }
 
-h1 {
-    font-size: 4rem;
-    color: var(--accent-orange);
-    line-height: 0.85;
-    /* Hard shadow on text makes it pop off the paper */
-    text-shadow: 4px 4px 0px var(--ink-black);
+.paper-section {
+  background: rgba(255,255,255,0.6);
 }
 
-/* --- VIDEO BLOCKS: Styled as Physical Polaroids/Slides --- */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+/* ----------------------------
+   HEADER
+----------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 1.5rem 0;
+  backdrop-filter: blur(6px);
 }
 
-.video-wrapper {
-    background: var(--ink-black);
-    border: 4px solid var(--ink-black);
-    box-shadow: 8px 8px 0px var(--accent-gold);
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    transition: transform 0.2s ease;
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.video-wrapper:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 10px 10px 0px var(--accent-orange);
+.logo {
+  height: 56px;
 }
 
-.video-wrapper iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    /* Grayscale filter on videos until hover makes it feel more "archival" */
-    filter: sepia(20%) contrast(110%);
+.nav a {
+  margin-left: 1.2rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink);
 }
 
-.video-wrapper:hover iframe {
-    filter: none;
+/* ----------------------------
+   HERO
+----------------------------- */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-/* --- THE "BUZZ ROOM" CARD --- */
-.buzz-room-card {
-    background: #E8E2D2;
-    border: 3px solid var(--ink-black);
-    padding: 1.5rem;
-    position: relative;
+.hero-text h1 {
+  font-family: "Fraunces", serif;
+  font-size: 3.6rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
 }
 
-.buzz-room-card::before {
-    content: "TOP SECRET";
-    position: absolute;
-    top: -10px; right: 10px;
-    background: var(--accent-orange);
-    color: white;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    font-weight: bold;
-    transform: rotate(3deg);
+.hero-subtitle {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.hero-body {
+  max-width: 46ch;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ----------------------------
+   VIDEO BLOCKS
+----------------------------- */
+
+.video-section {
+  background: transparent;
+}
+
+.video-section.alt {
+  background: rgba(255,255,255,0.45);
+}
+
+.video-section h2 {
+  font-family: "Fraunces", serif;
+  font-size: 2.4rem;
+}
+
+.section-intro {
+  max-width: 48ch;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.video-frame {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------------------------
+   PROTOCOLS
+----------------------------- */
+
+.protocols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.protocol {
+  background: var(--card);
+  padding: 1.4rem;
+  border-radius: var(--radius);
+  text-align: center;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+/* ----------------------------
+   FOOTER
+----------------------------- */
+
+.site-footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-inner a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+/* ----------------------------
+   RESPONSIVE
+----------------------------- */
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .protocols {
+    grid-template-columns: 1fr;
+  }
 }
