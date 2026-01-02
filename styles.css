@@ -251,9 +251,8 @@ a {
    SCROLL ANIMATIONS
 ---------------------------------*/
 .scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .scroll.visible {
