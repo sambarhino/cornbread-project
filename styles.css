@@ -292,4 +292,33 @@ a {
   .hero-subtitle {
     font-size: 1.1rem;
   }
+
+   .hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('assets/hero-texture.png') center/cover no-repeat;
+  opacity: 0.05; /* very subtle texture */
+  pointer-events: none;
+}
+
+.hero-image img {
+  width: 100%;
+  border: 8px solid teal;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  transform: rotate(-1.5deg);
+}
+
+   
 }
