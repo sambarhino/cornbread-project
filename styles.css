@@ -1,7 +1,7 @@
 /* -------------------------------
    RESET & BASE
 ---------------------------------*/
-* ⁠{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -67,7 +67,7 @@ a {
 }
 
 /* -------------------------------
-   HERO
+   HERO SECTION
 ---------------------------------*/
 .hero {
   display: flex;
@@ -75,7 +75,17 @@ a {
   justify-content: center;
   padding: 6rem 0;
   background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
+  position: relative;
   overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('assets/hero-texture.png') center/cover no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
 }
 
 .hero-grid {
@@ -108,10 +118,10 @@ a {
 
 .hero-image img {
   width: 100%;
-  border: 8px solid teal; /* strong teal border */
+  border: 8px solid teal;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  transform: rotate(-1deg);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  transform: rotate(-1.5deg);
 }
 
 /* -------------------------------
@@ -119,11 +129,11 @@ a {
 ---------------------------------*/
 .video-section {
   padding: 6rem 0;
-  background: #fff;
+  background: linear-gradient(to bottom, #fff, #f9f9f9);
 }
 
 .video-section.alt {
-  background: #f7f7f7;
+  background: linear-gradient(to bottom, #f7f7f7, #eaeaea);
 }
 
 .section-intro {
@@ -172,22 +182,35 @@ a {
 }
 
 .protocol {
-  flex: 1 1 200px;
+  flex: 1 1 220px;
   padding: 2rem;
-  background: teal;
+  background: linear-gradient(135deg, #008080, #00cccc);
   color: #fff;
   font-weight: 700;
   text-align: center;
-  border-radius: 8px;
-  transform: skewX(-10deg);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  transform: skewX(-12deg);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  position: relative;
   transition: transform 0.3s, background 0.3s;
   cursor: pointer;
 }
 
+.protocol::before, .protocol::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 10px;
+  background: rgba(0,0,0,0.1);
+  transform: skewX(12deg);
+}
+
+.protocol::before { left: -10px; }
+.protocol::after { right: -10px; }
+
 .protocol:hover {
-  transform: skewX(-10deg) translateY(-5px);
-  background: #008080cc;
+  transform: skewX(-12deg) translateY(-5px);
+  background: linear-gradient(135deg, #00b3b3, #008080);
 }
 
 /* -------------------------------
@@ -195,29 +218,41 @@ a {
 ---------------------------------*/
 .cta {
   padding: 6rem 0;
-  background: #222;
+  background: linear-gradient(135deg, #222, #111);
   color: #fff;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+.cta::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
 .cta-button {
   display: inline-block;
   padding: 1.2rem 2.5rem;
   margin-top: 2rem;
-  background: teal;
+  background: linear-gradient(135deg, #00cccc, #008080);
   color: #fff;
   font-weight: 700;
-  border-radius: 12px;
+  border-radius: 16px;
   text-transform: uppercase;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   transition: background 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
-  background: #006666;
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #008080, #00cccc);
+  transform: translateY(-4px);
 }
 
 /* -------------------------------
@@ -251,7 +286,7 @@ a {
    SCROLL ANIMATIONS
 ---------------------------------*/
 .scroll {
-opacity: 1 !important;
+  opacity: 1 !important;
   transform: translateY(0) !important;
 }
 
@@ -261,7 +296,7 @@ opacity: 1 !important;
 }
 
 /* -------------------------------
-   RESPONSIVE
+   RESPONSIVE ADJUSTMENTS
 ---------------------------------*/
 @media (max-width: 1024px) {
   .hero-grid {
@@ -291,125 +326,4 @@ opacity: 1 !important;
   .hero-subtitle {
     font-size: 1.1rem;
   }
-
-   .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('assets/hero-texture.png') center/cover no-repeat;
-  opacity: 0.05; /* very subtle texture */
-  pointer-events: none;
-}
-
-.hero-image img {
-  width: 100%;
-  border: 8px solid teal;
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-  transform: rotate(-1.5deg);
-}
-
-   .protocols {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 3rem;
-  position: relative;
-}
-
-.protocol {
-  flex: 1 1 220px;
-  padding: 2rem;
-  background: linear-gradient(135deg, #008080, #00cccc);
-  color: #fff;
-  font-weight: 700;
-  text-align: center;
-  border-radius: 12px;
-  transform: skewX(-12deg);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
-  position: relative;
-  transition: transform 0.3s, background 0.3s;
-  cursor: pointer;
-}
-
-.protocol::before, .protocol::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 10px;
-  background: rgba(0,0,0,0.1);
-  transform: skewX(12deg);
-}
-
-.protocol::before { left: -10px; }
-.protocol::after { right: -10px; }
-
-.protocol:hover {
-  transform: skewX(-12deg) translateY(-5px);
-  background: linear-gradient(135deg, #00b3b3, #008080);
-}
-
-   .video-section {
-  padding: 6rem 0;
-  background: linear-gradient(to bottom, #fff, #f9f9f9);
-}
-
-.video-section.alt {
-  background: linear-gradient(to bottom, #f7f7f7, #eaeaea);
-}
-
-.paper-section {
-  padding: 6rem 0;
-  background: #fffefc;
-}
-
-.cta {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #222, #111);
-  position: relative;
-  overflow: hidden;
-}
-
-.cta::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-  transform: rotate(45deg);
-  pointer-events: none;
-}
-.cta-button {
-  display: inline-block;
-  padding: 1.2rem 2.5rem;
-  margin-top: 2rem;
-  background: linear-gradient(135deg, #00cccc, #008080);
-  color: #fff;
-  font-weight: 700;
-  border-radius: 16px;
-  text-transform: uppercase;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  transition: background 0.3s, transform 0.3s;
-}
-
-.cta-button:hover {
-  background: linear-gradient(135deg, #008080, #00cccc);
-  transform: translateY(-4px);
-}
-
-
-   
 }
