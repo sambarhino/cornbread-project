@@ -1,210 +1,125 @@
-/* ----------------------------
-   VARIABLES & TYPOGRAPHY
------------------------------ */
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Cornbread Project — The Black Technical Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-:root {
-  --paper: #f6f2ea;
-  --ink: #1b1b1b;
-  --muted: #6e665c;
-  --accent: #e06a3a;
-  --card: #fffdfa;
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  --radius: 14px;
-  --shadow: 0 10px 28px rgba(0,0,0,0.18);
-}
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-•⁠  ⁠{ box-sizing: border-box; }
+<body>
 
-body {
-  margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
-  color: var(--ink);
-  background:
-    radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    var(--paper);
-  background-size: 3px 3px, 5px 5px, auto;
-  background-position: 0 0, 1px 1px, center;
-}
+<header class="site-header">
+  <div class="container header-inner">
+    <img src="assets/bt-logo.jpeg" class="logo" alt="The Black Technical Studios">
+    <nav class="nav">
+      <a href="#buzz">Buzz</a>
+      <a href="#leader">Leader</a>
+      <a href="#protocols">Protocols</a>
+      <a href="#join">Join</a>
+    </nav>
+  </div>
+</header>
 
-/* ----------------------------
-   LAYOUT
------------------------------ */
+<main>
 
-.container {
-  width: 92%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+<section class="hero scroll">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <h1>The Cornbread Project</h1>
+      <p class="hero-subtitle">An Integrated Leadership Journey</p>
+      <p class="hero-body">
+        A cultural and technical practice space where leadership,
+        systems, and story are cultivated with care.
+      </p>
+    </div>
 
-.container.narrow {
-  max-width: 760px;
-}
+    <div class="hero-image">
+      <img src="assets/converse.jpeg" alt="Cornbread illustration">
+    </div>
+  </div>
+</section>
 
-.scroll-section {
-  padding: 6rem 0;
-}
+<section id="buzz" class="video-section scroll">
+  <div class="container">
+    <h2>The Buzz Room</h2>
+    <p class="section-intro">
+      Storytelling the theory and history of technology — power,
+      imagination, and Black technical lineage.
+    </p>
 
-.paper-section {
-  background: rgba(255,255,255,0.6);
-}
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/vGmsiD8cACaoHLcWI"
+              title="The Buzz Room" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
-/* ----------------------------
-   HEADER
------------------------------ */
+<section id="leader" class="paper-section scroll">
+  <div class="container narrow">
+    <h2>The Integrated Leader</h2>
+    <p>
+      Leadership as synthesis: technical capability, ethical grounding,
+      cultural literacy, and embodied practice.
+    </p>
+  </div>
+</section>
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  padding: 1.5rem 0;
-  backdrop-filter: blur(6px);
-}
+<section class="video-section alt scroll">
+  <div class="container">
+    <h2>Practice & Reflection</h2>
+    <p class="section-intro">
+      Conversations and rituals designed to be returned to —
+      not consumed once.
+    </p>
 
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/vGmsiD8cACaoHLcWI"
+              title="Practice & Reflection" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
-.logo {
-  height: 56px;
-}
+<section id="protocols" class="paper-section scroll">
+  <div class="container">
+    <h2>The Cornbread Protocols</h2>
 
-.nav a {
-  margin-left: 1.2rem;
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--ink);
-}
+    <div class="protocols">
+      <div class="protocol">Recipes</div>
+      <div class="protocol">History</div>
+      <div class="protocol">Community</div>
+    </div>
+  </div>
+</section>
 
-/* ----------------------------
-   HERO
------------------------------ */
+<section id="join" class="cta scroll">
+  <div class="container narrow">
+    <h2>Join the Journey</h2>
+    <p>
+      This is a living practice. Enter the room.
+    </p>
+    <a href="#" class="cta-button">Join / Subscribe</a>
+  </div>
+</section>
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
-  align-items: center;
-}
+</main>
 
-.hero-text h1 {
-  font-family: "Fraunces", serif;
-  font-size: 3.6rem;
-  margin: 0 0 0.5rem;
-  color: var(--accent);
-}
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>©️ The Black Technical Studios</p>
+    <nav>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</footer>
 
-.hero-subtitle {
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-}
-
-.hero-body {
-  max-width: 46ch;
-  color: var(--muted);
-  margin-top: 1rem;
-}
-
-.hero-image img {
-  width: 100%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* ----------------------------
-   VIDEO BLOCKS
------------------------------ */
-
-.video-section {
-  background: transparent;
-}
-
-.video-section.alt {
-  background: rgba(255,255,255,0.45);
-}
-
-.video-section h2 {
-  font-family: "Fraunces", serif;
-  font-size: 2.4rem;
-}
-
-.section-intro {
-  max-width: 48ch;
-  color: var(--muted);
-  margin-bottom: 2rem;
-}
-
-.video-frame {
-  position: relative;
-  padding-top: 56.25%;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.video-frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* ----------------------------
-   PROTOCOLS
------------------------------ */
-
-.protocols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  margin-top: 2rem;
-}
-
-.protocol {
-  background: var(--card);
-  padding: 1.4rem;
-  border-radius: var(--radius);
-  text-align: center;
-  font-weight: 600;
-  box-shadow: var(--shadow);
-}
-
-/* ----------------------------
-   FOOTER
------------------------------ */
-
-.site-footer {
-  padding: 2.5rem 0;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  color: var(--muted);
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-inner a {
-  margin-left: 1rem;
-  text-decoration: none;
-  color: var(--muted);
-}
-
-/* ----------------------------
-   RESPONSIVE
------------------------------ */
-
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .protocols {
-    grid-template-columns: 1fr;
-  }
-}
+<script src="script.js"></script>
+</body>
+</html>
