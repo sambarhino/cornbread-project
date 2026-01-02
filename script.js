@@ -1,14 +1,10 @@
-js
+.scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-document.querySelectorAll(".scroll").forEach(el => observer.observe(el));
+.scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
