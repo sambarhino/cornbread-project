@@ -4,101 +4,101 @@
   <meta charset="utf-8" />
   <title>The Cornbread Project — The Black Technical Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <img src="assets/logo.jpeg" alt="The Black Technical Studios" class="logo" />
-
+      <img src="assets/bt-logo.jpeg" class="logo" alt="The Black Technical Studios">
       <nav class="nav">
-        <a href="#">Labs</a>
-        <a href="#">Cornbread</a>
-        <a href="#">Integrated Leader</a>
-        <a href="#">Join</a>
-        <a href="#">Theory</a>
-        <a href="#">About</a>
+        <a href="#labs">Labs</a>
+        <a href="#leader">Integrated Leader</a>
+        <a href="#theory">Theory</a>
+        <a href="#join">Join</a>
+        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero scroll-section">
     <div class="container hero-grid">
       <div class="hero-text">
         <h1>The Cornbread Project</h1>
-        <p class="subtitle">
-          An Integrated Leadership Journey
+        <p class="hero-subtitle">An Integrated Leadership Journey</p>
+        <p class="hero-body">
+          A cultural and technical practice space — where leadership,
+          storytelling, and craft meet history, systems, and community.
         </p>
-        <p class="description">
-          A cultural and technical space for leadership, storytelling, and
-          practice — grounded in history, craft, and community.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#" class="btn primary">Explore the Journey</a>
-          <a href="#" class="btn secondary">Join the Community</a>
-        </div>
       </div>
 
-      <div class="hero-visual">
-        <img
-          src="assets/feature-cornbread.jpeg"
-          alt="Cornbread illustration"
-        />
+      <div class="hero-image">
+        <img src="assets/converse.jpeg" alt="Cornbread illustration">
       </div>
     </div>
   </section>
 
-  <!-- NEW DROPS -->
-  <section class="section">
+  <!-- VIDEO BLOCK 1 -->
+  <section class="video-section scroll-section">
     <div class="container">
-      <h2>New Drops</h2>
+      <h2>The Buzz Room</h2>
+      <p class="section-intro">
+        Storytelling the theory and history of technology — examining power,
+        imagination, and Black technical lineage.
+      </p>
 
-      <div class="cards">
-        <div class="card">Drop One</div>
-        <div class="card">Drop Two</div>
-        <div class="card">Drop Three</div>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/vGmsiD8cACaoHLcWI"
+          title="The Buzz Room"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
 
-  <!-- BUZZ ROOM -->
-  <section class="section alt">
-    <div class="container two-col">
-      <div>
-        <h2>The Buzz Room</h2>
-        <p>
-          Storytelling the theory and history of technology — examining power,
-          imagination, and Black technical lineage.
-        </p>
-      </div>
-
-      <div class="excerpt">
-        <strong>Excerpt</strong>
-        <p>
-          From the Blacked Object: On machine learning and the aspiration of
-          Black being.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTEGRATED LEADER -->
-  <section class="section">
-    <div class="container">
+  <!-- LEADER SECTION -->
+  <section id="leader" class="scroll-section paper-section">
+    <div class="container narrow">
       <h2>The Integrated Leader</h2>
       <p>
-        A leadership framework blending technical skill, ethical reflection,
-        and embodied practice.
+        Leadership as a synthesis of technical capability, ethical grounding,
+        cultural literacy, and embodied practice.
       </p>
     </div>
   </section>
 
-  <!-- CORNBREAD PROTOCOLS -->
-  <section class="section alt">
+  <!-- VIDEO BLOCK 2 -->
+  <section class="video-section scroll-section alt">
+    <div class="container">
+      <h2>Practice & Reflection</h2>
+      <p class="section-intro">
+        Conversations and rituals designed to be returned to — not consumed once.
+      </p>
+
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/vGmsiD8cACaoHLcWI"
+          title="Practice & Reflection"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOCOLS -->
+  <section class="scroll-section paper-section">
     <div class="container">
       <h2>The Cornbread Protocols</h2>
 
@@ -120,5 +120,6 @@
       </nav>
     </div>
   </footer>
+
 </body>
 </html>
